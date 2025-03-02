@@ -21,7 +21,7 @@ const Login = () => {
       <video src={video} autoPlay muted loop controls></video>
 
       <div className="textDiv">
-        <h2 className="titel">Products</h2>
+        <h2 className="titel">Create And sell Extraordinary Products</h2>
 
         <p>Adopt The peace of naturel</p>
       </div>
@@ -29,7 +29,8 @@ const Login = () => {
       <div className="footerDiv flex">
         <span className='text'>Don't have an account</span>
         <Link to={'/register'}>
-        <button className='btn'>Sign Up</button></Link>
+        <button className='btn'>Sign Up</button>
+        </Link>
       </div>
       </div>
 
@@ -40,7 +41,7 @@ const Login = () => {
         </div>
 
         <form action="" className='from grid'>
-          <span>Login Status will go here</span>
+          <span className='showMessage'>Login Status will go here</span>
         
         <div className="inputDiv">
         <label htmlFor="username">Username</label>
