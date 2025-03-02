@@ -27,9 +27,9 @@ const Register = () => {
       </div>
 
       <div className="footerDiv flex">
-        <span className='text'>Don't have an account</span>
-        <Link to={'/register'}>
-        <button className='btn'>Sign Up</button>
+        <span className='text'>Have an account</span>
+        <Link to={'/'}>
+        <button className='btn'>Login</button>
         </Link>
       </div>
       </div>
@@ -37,7 +37,7 @@ const Register = () => {
       <div className="formDivflex">
         <div className="headerDiv">
          <img src={logo01} alt="Logo Image" />
-         <h3>Welcome Back</h3>
+         <h3>Let Us Know you!</h3>
         </div>
 
         <form action="" className='from grid'>
