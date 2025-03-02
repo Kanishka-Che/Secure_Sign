@@ -23,7 +23,7 @@ const Register = () => {
       <div className="textDiv">
         <h2 className="titel">Create And Sell Extraordinary Products</h2>
 
-        <p>Adopt The peace of naturel</p>
+        <p>Adopt The peace of Naturel</p>
       </div>
 
       <div className="footerDiv flex">
