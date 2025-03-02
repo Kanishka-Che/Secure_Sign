@@ -4,7 +4,7 @@ import "../../App.scss"
 import{Link} from "react-router-dom"
 
 import video from '../../LoginAssets/video-01.mp4';
-import logo01 from '../../LoginAssets/logo01.jpeg';
+import logo01 from '../../LoginAssets/logo-01.png';
 
 import { FaUserShield } from "react-icons/fa";
 import {BsFillShieldLockFill } from "react-icons/bs";

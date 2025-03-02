@@ -1,12 +1,12 @@
 import React from 'react'
-import "./Register.css"
+import "./Register.scss"
 import "../../App.scss"
 import{Link} from "react-router-dom"
 
 import video from '../../LoginAssets/video-01.mp4';
-import logo01 from '../../LoginAssets/logo01.jpeg';
-
-import { TfiEmail } from "react-icons/tfi";
+import logo01 from '../../LoginAssets/logo-01.png';
+import { FaUserShield } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 import {BsFillShieldLockFill } from "react-icons/bs";
 
 import { AiOutlineSwapRight } from "react-icons/ai";
@@ -46,10 +46,19 @@ const Register = () => {
         <div className="inputDiv">
         <label htmlFor="email">Email</label>
          <div className="input flex">
-         <TfiEmail className="icon"/>
+         <MdEmail className="icon"/>
             <input type='email' id="email" placeholder='Enter Email'/>
         </div>
         </div>
+
+
+         <div className="inputDiv">
+                <label htmlFor="username">Username</label>
+                 <div className="input flex">
+                   <FaUserShield className="icon"/>
+                    <input type='text' id="username" placeholder='Enter Username'/>
+                </div>
+          </div>
 
         <div className="inputDiv">
         <label htmlFor="Password">Password</label>
