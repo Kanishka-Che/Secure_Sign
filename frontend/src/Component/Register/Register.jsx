@@ -1,7 +1,9 @@
-import React from 'react'
+import React,{useState} from 'react'
 import "./Register.scss"
 import "../../App.scss"
-import{Link} from "react-router-dom"
+import{Link,Link} from "react-router-dom"
+import Axios from 'axios'
+
 
 import video from '../../LoginAssets/video-01.mp4';
 import logo01 from '../../LoginAssets/logo-01.png';
@@ -13,6 +15,19 @@ import { AiOutlineSwapRight } from "react-icons/ai";
 
 
 const Register = () => {
+
+
+  const[email,setEmail]=useState('')
+  const[userName,setUserName]=useState('')
+  const[password,setPassword]=useState('')
+
+
+  const CreateUser =()=>{
+    
+      Axios.post
+  }
+
+
   return (
     <div className='registerPage flex'>
     <div className="container flex">
@@ -47,7 +62,10 @@ const Register = () => {
         <label htmlFor="email">Email</label>
          <div className="input flex">
          <MdEmail className="icon"/>
-            <input type='email' id="email" placeholder='Enter Email'/>
+            <input type='email' id="email" placeholder='Enter Email' onChange={(event)=>{
+               setEmail(event.target.value) 
+
+            }}/>
         </div>
         </div>
 
@@ -56,7 +74,13 @@ const Register = () => {
                 <label htmlFor="username">Username</label>
                  <div className="input flex">
                    <FaUserShield className="icon"/>
-                    <input type='text' id="username" placeholder='Enter Username'/>
+                    <input type='text' id="username" placeholder='Enter Username'
+                    onChange={(event)=>{
+                      setUserName(event.target.value) 
+       
+                   }}
+                    
+                    />
                 </div>
           </div>
 
@@ -64,11 +88,17 @@ const Register = () => {
         <label htmlFor="Password">Password</label>
          <div className="input flex">
            <BsFillShieldLockFill className="icon"/>
-            <input type='Password' id="Password" placeholder='Enter Password'/>
+            <input type='Password' id="Password" placeholder='Enter Password' 
+            onChange={(event)=>{
+              setPassword(event.target.value) 
+
+           }}
+            
+            />
         </div>
         </div>
 
-        <button type='submit' className='btn flex'>
+        <button type='submit' className='btn flex' onClick={}>
           <span>Register</span>
           <AiOutlineSwapRight className="icon" />
         </button>
