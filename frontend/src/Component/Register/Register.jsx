@@ -24,7 +24,14 @@ const Register = () => {
 
   const CreateUser =()=>{
     
-      Axios.post
+      Axios.post('http://localhost:3002/register',{
+
+        Email:email,
+        UserName:userName,
+        password:password
+      }).then(()=>{
+        console.log('User has been created')
+      })
   }
 
 
@@ -98,7 +105,7 @@ const Register = () => {
         </div>
         </div>
 
-        <button type='submit' className='btn flex' onClick={}>
+        <button type='submit' className='btn flex' onClick={CreateUser}>
           <span>Register</span>
           <AiOutlineSwapRight className="icon" />
         </button>

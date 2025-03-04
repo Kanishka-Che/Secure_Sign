@@ -19,6 +19,11 @@ const db=mysql.createConnection({
 
 app.post('/register',(req,res)=>{
 
+      const sentEmail= req.body.Email
+      const sentUserName= req.body.UserName
+      const sentpassword= req.body.password
 
+
+      const SQL='INSERT INTO users(email,username,password) VALUES (?,?,?)'
     
 })
