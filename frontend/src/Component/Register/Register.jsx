@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import "./Register.scss"
 import "../../App.scss"
-import{Link,Link} from "react-router-dom"
+import{Link} from "react-router-dom"
 import Axios from 'axios'
 
 
