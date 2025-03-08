@@ -1,7 +1,8 @@
-import React from 'react'
+import React,{useState} from 'react'
 import "./Login.css"
 import "../../App.scss"
 import{Link} from "react-router-dom"
+import Axios from 'axios'
 
 import video from '../../LoginAssets/video-01.mp4';
 import logo01 from '../../LoginAssets/logo-01.png';
@@ -13,6 +14,23 @@ import { AiOutlineSwapRight } from "react-icons/ai";
 
 
 const Login = () => {
+    const[loginUserName,setLoginUserName]=useState('')
+    const[loginPassword,setLoginPassword]=useState('')
+    
+    
+      const CreateUser =()=>{
+        
+          Axios.post('http://localhost:3002/login',{
+    
+           
+            LoginUserName:loginUserName,
+            LoginPassword:loginPassword
+          }).then((response)=>{
+           console.log(response)
+          })
+      }
+
+
   return (
     <div className='loginPage flex'>
     <div className="container flex">
@@ -47,7 +65,11 @@ const Login = () => {
         <label htmlFor="username">Username</label>
          <div className="input flex">
            <FaUserShield className="icon"/>
-            <input type='text' id="username" placeholder='Enter Username'/>
+            <input type='text' id="username" placeholder='Enter Username'
+            onChange={(event)=>{
+              setLoginUserName(event.target.value) 
+
+            }}/>
         </div>
         </div>
 
@@ -55,11 +77,15 @@ const Login = () => {
         <label htmlFor="Password">Password</label>
          <div className="input flex">
            <BsFillShieldLockFill className="icon"/>
-            <input type='Password' id="Password" placeholder='Enter Password'/>
+            <input type='Password' id="Password" placeholder='Enter Password'
+            onChange={(event)=>{
+              setLoginPassword(event.target.value) 
+
+            }}/>
         </div>
         </div>
 
-        <button type='submit' className='btn flex'>
+        <button type='submit' className='btn flex' onClick={}>
           <span>Login</span>
           <AiOutlineSwapRight className="icon" />
         </button>
