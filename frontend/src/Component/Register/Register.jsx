@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import "./Register.scss"
 import "../../App.scss"
-import{Link} from "react-router-dom"
+import{Link,useNavigate} from "react-router-dom"
 import Axios from 'axios'
 
 
@@ -20,9 +20,12 @@ const Register = () => {
   const[email,setEmail]=useState('')
   const[userName,setUserName]=useState('')
   const[password,setPassword]=useState('')
+  const navigateTo= useNavigate()
 
 
-  const CreateUser =()=>{
+  const CreateUser =(e)=>{
+
+    e.preventDefault()
     
       Axios.post('http://localhost:3002/register',{
 
@@ -30,7 +33,11 @@ const Register = () => {
         UserName:userName,
         password:password
       }).then(()=>{
-        console.log('User has been created')
+        navigateTo('/')
+
+        setEmail('')
+        setUserName('')
+        setPassword('')
       })
   }
 

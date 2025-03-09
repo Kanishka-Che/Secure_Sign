@@ -1,7 +1,7 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import "./Login.css"
 import "../../App.scss"
-import{Link} from "react-router-dom"
+import{Link,useNavigate} from "react-router-dom"
 import Axios from 'axios'
 
 import video from '../../LoginAssets/video-01.mp4';
@@ -16,19 +16,50 @@ import { AiOutlineSwapRight } from "react-icons/ai";
 const Login = () => {
     const[loginUserName,setLoginUserName]=useState('')
     const[loginPassword,setLoginPassword]=useState('')
+    const navigateTo= useNavigate()
+
+
+    const [loginStatus,setLoginStatus]=useState()
+    const [statusHolder,setstatusHolder]=useState('message')
     
-    
-      const CreateUser =()=>{
+      const loginUser =(e)=>{
         
+        e.preventDefault();
+
           Axios.post('http://localhost:3002/login',{
     
            
             LoginUserName:loginUserName,
             LoginPassword:loginPassword
           }).then((response)=>{
-           console.log(response)
+           console.log()
+           if(response.data.message){
+
+            navigateTo('/')
+            setLoginStatus(`Credentials Don't Exist!`)
+
+           }
+            else{
+              navigateTo('/dashboard')
+            }
+           
           })
       }
+
+      useEffect(()=>{
+          if(loginStatus!==''){
+            setstatusHolder('showMessage')
+            setTimeout(()=>{
+              setstatusHolder('message')
+            },4000);
+          }
+        },[loginStatus])
+
+        const onsubmit=()=>{
+          setLoginUserName('')
+          setLoginPassword('')
+        }
+
 
 
   return (
@@ -58,8 +89,8 @@ const Login = () => {
          <h3>Welcome Back</h3>
         </div>
 
-        <form action="" className='from grid'>
-          <span className='showMessage'>Login Status will go here</span>
+        <form className='from grid' onsubmit={onsubmit}>
+          <span className={statusHolder}>{loginStatus}</span>
         
         <div className="inputDiv">
         <label htmlFor="username">Username</label>
@@ -85,13 +116,10 @@ const Login = () => {
         </div>
         </div>
 
-        <button type='submit' className='btn flex' onClick={}>
+        <button type='submit' className='btn flex' onClick={loginUser}>
           <span>Login</span>
           <AiOutlineSwapRight className="icon" />
         </button>
-
-
-        <a href='/dashboard'>Dashboard</a>
 
         <span className='forgotPassword'>
           Forgot your password?<a href="">Click Here</a>

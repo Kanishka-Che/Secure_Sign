@@ -46,10 +46,24 @@ app.post('/register', (req, res) => {
 });
 
 app.post('/login',(req,red)=>{
-    const sentEmail = req.body.Email;
-    const sentUserName = req.body.UserName;
-    const sentpassword = req.body.password;
+    
+    const sentloginUserName = req.body.loginUserName;
+    const sentLoginPassword = req.body.loginPassword;
 
-    const SQL = 'INSERT INTO users(email,username,password) VALUES (?,?,?)';
-    const values = [sentEmail, sentUserName, sentpassword];
+    const SQL = 'SELECT * FROM users WHERE username =? && password=?'
+    const values = [sentloginUserName, sentLoginPassword ];
+
+
+    db.query(SQL, values, (err, result) => {
+      if(err){
+          res.send({error:err})
+      }
+      if(results.length>0){
+        res.send(results)
+      }
+      else{
+        res.send({message:`Credentials Don't match!`})
+      }
+
+    });
 })
