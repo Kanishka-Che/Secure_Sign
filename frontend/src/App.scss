@@ -1,14 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Dancing+Script:wght@400..700&family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,300;0,400;0,800;1,300;1,500;1,600&display=swap');
 
-*{
-    padding: 0%;
-    margin: 0%;
+*{  
     box-sizing:border-box;
     font-family:"Mona Sans", serif;
 }
-:root{
 
-}
 .flex{
     display: flex;
     align-items: center;
@@ -17,7 +13,7 @@
 .grid{
     display: grid;
     align-items: center;
-    gap: 1.5rem;
+    gap: 10px;
 }
 
 html{
@@ -35,9 +31,9 @@ li{
     cursor: pointer;
 }
 
-img,video{
-    height: auto;
-    width: 100%;
+img{
+    height: 60%;
+    width: 30%;
 }
 
 .message{
@@ -70,7 +66,7 @@ img,video{
     cursor: pointer;
     border-radius: 8px;
     padding: 1rem 0.5rem;
-    color:var(--greyText);
+    color:rgb(40, 151, 159);
 
 }
 
@@ -78,8 +74,8 @@ img,video{
     margin-left:5rem ;
 }
 .btn:hover{
-    color: var(--primaryColor);
-    background: var(--palegreen);
+    color: rgb(190, 44, 44);
+    background: rgb(85, 204, 11);
 }
 
 .loginpage, .registerPage-flex{
@@ -104,7 +100,7 @@ img,video{
     position: relative;
     display: flex;
     flex-basis: 50%;
-    width: 70%;
+    width: 80%;
     height: 100%;
     padding: 0 1.5rem;
     text-align: center;
@@ -177,10 +173,10 @@ img,video{
 
 }
 .formDiv{
-    flex-basis: 50%;
-    margin: auto;
+    flex-basis: 40%;
+    margin-left: 40%;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 10px;
     transform:translatev(-1rem);
 
     .headerDiv{
@@ -188,15 +184,15 @@ img,video{
         padding: 1.5rem 0;
 
         img{
-            width: 300px;
-            height: 10px;
+            width: 10px;
+            height: .5px;
             padding-bottom: .5rem;
         }
 
         h3{
             font-size: 25px;
             color: var(--blackColor);
-            font-weight: 600;
+            font-weight: 60;
         }
     }
     .form{
@@ -210,7 +206,7 @@ gap:1rem;
         background: none;
         outline: none;
         border: none;
-        width: 200px;
+        width: 20px;
     }
 
     label{
@@ -249,21 +245,24 @@ gap:1rem;
             background:var(--hoverColor) ;
             transform: translateX(5px);
         }
+
+
+        .forgotPassword{
+            font-size: 13px;
+            color: var(--blackColor);
+            opacity: .7;
+            text-align: center;
+        
+            a{
+                text-decoration: underline;
+                cursor: pointer;
+                opacity:1 ;
+            }
+         }
 }
 
 }
- .forgotPassword{
-    font-size: 13px;
-    color: var(--blackColor);
-    opacity: .7;
-    text-align: center;
 
-    a{
-        text-decoration: underline;
-        cursor: pointer;
-        opacity:1 ;
-    }
- }
 }
 }
 }
