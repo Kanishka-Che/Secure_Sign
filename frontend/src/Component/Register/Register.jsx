@@ -23,23 +23,26 @@ const Register = () => {
   const navigateTo= useNavigate()
 
 
-  const CreateUser =(e)=>{
-
-    e.preventDefault()
+  const CreateUser = (e) => {
+    e.preventDefault();
     
-      Axios.post('http://localhost:3002/register',{
-
-        Email:email,
-        UserName:userName,
-        password:password
-      }).then(()=>{
-        navigateTo('/')
-
-        setEmail('')
-        setUserName('')
-        setPassword('')
-      })
-  }
+    Axios.post('http://localhost:3002/register', {
+      Email: email,
+      UserName: userName,
+      password: password
+    })
+    .then(() => {
+      console.log("User registered successfully");
+      navigateTo('/');
+      setEmail('');
+      setUserName('');
+      setPassword('');
+    })
+    .catch((error) => {
+      console.error("Error registering user:", error);
+    });
+  };
+  
 
 
   return (
@@ -112,7 +115,7 @@ const Register = () => {
         </div>
         </div>
 
-        <button type='submit' className='btn flex' onClick={CreateUser}>
+        <button type='submit' className='btn flex' onSubmit={CreateUser}>
           <span>Register</span>
           <AiOutlineSwapRight className="icon" />
         </button>

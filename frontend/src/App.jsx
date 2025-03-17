@@ -9,25 +9,22 @@
  
  const router=createBrowserRouter([
   {
-    path:'/',
-    element:<Login/>
+    path:'/',element:<Login/>
   },
   {
-    path:'/Register',
-    element:<Register/>
+    path:'/Register',element:<Register/>
   },
   {
-    path:'/Dashboard',
-    element:<Dashboard/>
+    path:'/Dashboard',element:<Dashboard/>
   }
  ])
 
 function App() {
   return (
   <div>
-   <RouterProvider router={router}/>
+   
   </div>
   )
 }
 
-export default App
+export default App;
